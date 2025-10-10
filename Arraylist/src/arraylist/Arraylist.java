@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 
 
-public class Arraylist {
+public class ArrayListDemo {
      
  
  static void display(String  values){
