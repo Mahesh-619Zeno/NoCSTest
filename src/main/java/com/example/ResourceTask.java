@@ -9,13 +9,14 @@ public class ResourceTask {
     public void saveFromSocket(Socket s, String path) {
         try {
             InputStream in = s.getInputStream();
-            FileOutputStream out = new FileOutputStream(path);
-            byte[] buf = new byte[4096];
-            int r;
-            while ((r = in.read(buf)) != -1) {
-                out.write(buf, 0, r);
+            try (FileOutputStream out = new FileOutputStream(path)) {
+                byte[] buf = new byte[4096];
+                int r;
+                while ((r = in.read(buf)) != -1) {
+                    out.write(buf, 0, r);
+                }
+                out.flush();
             }
-            out.flush();
         } catch (Exception e) {
         }
     }
