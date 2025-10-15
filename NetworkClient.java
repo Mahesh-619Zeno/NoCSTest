@@ -67,7 +67,7 @@ public class NetworkClient {
                 conn.setRequestProperty("Authorization", "Bearer " + authToken);
             }
 
-            logger.info("Posting to " + urlStr);
+            logger.info("Posting data to URL");
 
             byte[] payloadBytes = payload.getBytes(StandardCharsets.UTF_8);
             try (OutputStream out = conn.getOutputStream()) {
